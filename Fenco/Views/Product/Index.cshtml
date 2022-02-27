@@ -1,0 +1,470 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<main>
+    <section id="page-heading">
+        <div class="container expanded">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-content">
+                        <h2>
+                            Welcome to
+                            <br>
+                            <em>Our Products.</em>
+                        </h2>
+                        <span>Home / <em> Our Shop</em></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="all-products-grid">
+        <div class="container expanded">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="sidebar-filter">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="sidebar-widget search-box">
+                                    <input type="search" placeholder="Type here to search...">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="sidebar-widget search-filter">
+                                    <h4>Search Filter</h4>
+                                    <div class="select">
+                                        <select id="collection">
+                                            <option value="default" selected>Collection Type</option>
+                                            <option value="men">Men Collection</option>
+                                            <option value="women">Women Collection</option>
+                                            <option value="kids">Kids Collection Type</option>
+                                        </select>
+                                    </div>
+                                    <div class="select">
+                                        <select id="color">
+                                            <option value="default" selected>Product Color</option>
+                                            <option value="red">Red Color</option>
+                                            <option value="blue">Blue Color</option>
+                                            <option value="Green">Green Color</option>
+                                        </select>
+                                    </div>
+                                    <div class="select">
+                                        <select id="size">
+                                            <option value="default" selected>Product Color</option>
+                                            <option value="red">Red Color</option>
+                                            <option value="blue">Blue Color</option>
+                                            <option value="Green">Green Color</option>
+                                        </select>
+                                    </div>
+                                    <div class="select">
+                                        <select id="price">
+                                            <option value="default" selected>Price Range</option>
+                                            <option value="0-50">$0-$50</option>
+                                            <option value="50-100">$50-$100</option>
+                                            <option value="100+">$100+</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" id="form-submit" class="main-dark-button">Search Now</button>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="sidebar-widget products-categories">
+                                    <h4>Products Categories</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Women Collection <em>36</em></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Men Collection <em>43</em></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Kids Collection <em>62</em></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Accesories <em>36</em></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Hot Deals <em>8</em></a>
+                                        </li>
+                                        <li>
+                                            <a href="#">New Arrivals <em>24</em></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="sidebar-widget promotion-widget">
+                                    <a href="#">
+                                        <div class="thumb">
+                                            <img src="/img/new-arrival-ads.jpeg" alt="">
+                                            <div class="inner-content">
+                                                <span class="banner">New Arrivals</span>
+                                                <h4>
+                                                    Livia fenco - Fashion
+                                                    <br>
+                                                    <em>new arrival.</em>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-01.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">Sneakers Splash VRT</a></h4>
+                                            <span class="price">$39.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <span class="banner">Sale</span>
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-02.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">Classic Black Belt Watch</a></h4>
+                                            <span class="price"><em>$199.99</em>$129.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <span class="banner">Limited</span>
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-03.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">Modern Light Pink Glasses</a></h4>
+                                            <span class="price">$99.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-04.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">Hand Bag OUG Cassual</a></h4>
+                                            <span class="price">$19.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-05.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">Man Bag OUG Cassual</a></h4>
+                                            <span class="price">$19.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-06.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">Porke Flat White Design</a></h4>
+                                            <span class="price">$219.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-07.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">Smart Sound Box</a></h4>
+                                            <span class="price">$39.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-08.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">IP Smart Sound Pods</a></h4>
+                                            <span class="price">$49.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-05.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">Man Bag OUG Cassual</a></h4>
+                                            <span class="price">$19.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-06.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">Porke Flat White Design</a></h4>
+                                            <span class="price">$219.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-07.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">Smart Sound Box</a></h4>
+                                            <span class="price">$39.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="recent-item">
+                                        <div class="thumb">
+                                            <div class="hover-contet">
+                                                <ul class="icons">
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-heart"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="/img/recent-item-08.jpeg" alt="">
+                                        </div>
+                                        <div class="down-content">
+                                            <h4><a href="product-details.html">IP Smart Sound Pods</a></h4>
+                                            <span class="price">$49.99</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-12">
+                                    <div class="border-dark-button">
+                                        <a href="#">View All Products</a>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="col-lg-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="fenco-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="info-item">
+                        <div class="inner-content">
+                            <div class="left-logo">
+                                <i class="fa-solid fa-truck"></i>
+                            </div>
+                            <div class="right-text">
+                                <h6>Free Shipping</h6>
+                                <span>Free, fast & secure delivery within 24h.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="info-item">
+                        <div class="inner-content">
+                            <div class="left-logo">
+                                <i class="fa-solid fa-shield-blank"></i>
+                            </div>
+                            <div class="right-text">
+                                <h6>Secure Payment</h6>
+                                <span>Up to 12 months open for support tickets.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="info-item">
+                        <div class="inner-content">
+                            <div class="left-logo">
+                                <i class="fa-solid fa-arrow-rotate-left"></i>
+                            </div>
+                            <div class="right-text">
+                                <h6>30 Days Return</h6>
+                                <span>30 days free returns for unhappy products.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
