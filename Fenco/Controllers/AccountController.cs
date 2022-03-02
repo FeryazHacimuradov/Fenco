@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace Fenco.Controllers
 {
-    public class LoginController : Controller
+    public class AccountController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Register()
+        {
+            return View();
+        }
+        public IActionResult Login()
         {
             return View();
         }
