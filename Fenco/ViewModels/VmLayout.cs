@@ -10,5 +10,7 @@ namespace Fenco.ViewModels
     {
         public Setting Setting { get; set; }
         public List<Social> Socials { get; set; }
+        public List<Service> Services { get; set; }
+
     }
 }

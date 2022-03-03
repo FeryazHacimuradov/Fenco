@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Fenco.Data;
+using Fenco.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,20 @@ namespace Fenco.Controllers
 {
     public class ContactController : Controller
     {
+        private readonly AppDbContext _context;
+
+        public ContactController(AppDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
-            return View();
+            VmHome model = new VmHome();
+            model.Setting = _context.Settings.FirstOrDefault();
+            model.Socials = _context.Socials.ToList();
+            model.Services = _context.Services.ToList();
+
+            return View(model);
         }
     }
 }

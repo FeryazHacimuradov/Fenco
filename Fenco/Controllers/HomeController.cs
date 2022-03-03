@@ -2,6 +2,7 @@
 using Fenco.Models;
 using Fenco.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,10 @@ namespace Fenco.Controllers
         {
             VmHome model = new VmHome();
             model.Setting = _context.Settings.FirstOrDefault();
+            model.Socials = _context.Socials.ToList();
             model.Services = _context.Services.ToList();
             model.Products = _context.Products.ToList();
-            model.Blogs = _context.Blogs.ToList();
+            //model.Blogs = _context.Blogs.Include("CustomUser").OrderByDescending(o=>o.CreatedDate).Take(3).ToList();
 
             return View(model);
         }

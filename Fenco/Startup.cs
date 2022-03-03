@@ -51,6 +51,12 @@ namespace Fenco
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapAreaControllerRoute(
+                    name:"Areas",
+                    areaName:"admin",
+                    pattern: "admin/{controller=Account}/{action=Login}/{id?}"
+                    );
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

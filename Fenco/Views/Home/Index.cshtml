@@ -1,4 +1,6 @@
-﻿@{
+﻿@model VmHome
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -448,6 +450,41 @@
                         </div>
                     </div>
                 </div>
+
+                @*@foreach (var item in Model.Blogs)
+                {
+                    <div class="col-lg-4">
+                        <div class="entries-item">
+                            <div class="thumb">
+                                <a href="#">
+                                    <img src="/img/@item.BlogImage" alt="">
+                                    @{
+                                        DateTime today = DateTime.Today;
+                                        TimeSpan diff = today.Subtract(item.CreatedDate);
+
+                                        int days = diff.Days;
+                                     }
+                                    <span class="date"> @item.CreatedDate </span>
+                                </a>
+                            </div>
+                            <div class="down-content">
+                                <span class="info">
+                                    <a href="#"><i class="fa-solid fa-user"></i>@(item.CustomUser.Name+" "+item.CustomUser.Surname)</a>
+                                    |
+                                    <a href="#"><i class="fa-solid fa-message"></i> 7 Comments</a>
+                                </span>
+                                <a href="#">
+                                    <h4>@item.Title</h4>
+                                </a>
+                                <p>@item.BlogContent</p>
+                                <div class="text-button">
+                                    <a href="#">Continue Reading</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }*@
             </div>
         </div>
     </section>
