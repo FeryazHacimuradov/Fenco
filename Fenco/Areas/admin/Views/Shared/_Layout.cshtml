@@ -67,7 +67,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" asp-area="admin" asp-controller="account" asp-action="users">Users</a>
-                        <a class="collapse-item" href="~/Areas/admin/cards.html">Roles</a>
+                        <a class="collapse-item" asp-area="admin" asp-controller="account" asp-action="roles">Roles</a>
                     </div>
                 </div>
             </li>
@@ -176,19 +176,6 @@
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2"
-                     src="img/undraw_rocket.svg"
-                     alt="..." />
-                <p class="text-center mb-2">
-                    <strong>SB Admin Pro</strong> is packed with premium features,
-                    components, and more!
-                </p>
-                <a class="btn btn-success btn-sm"
-                   href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
             </div>
         </ul>
         <!-- End of Sidebar -->
@@ -313,7 +300,7 @@
                                 <a class="dropdown-item d-flex align-items-center" href="~/Areas/admin/#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle"
-                                             src="img/undraw_profile_1.svg"
+                                             src="~/Areas/admin/img/undraw_profile_1.svg"
                                              alt="..." />
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -328,7 +315,7 @@
                                 <a class="dropdown-item d-flex align-items-center" href="~/Areas/admin/#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle"
-                                             src="img/undraw_profile_2.svg"
+                                             src="~/Areas/admin/img/undraw_profile_2.svg"
                                              alt="..." />
                                         <div class="status-indicator"></div>
                                     </div>
@@ -343,7 +330,7 @@
                                 <a class="dropdown-item d-flex align-items-center" href="~/Areas/admin/#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle"
-                                             src="img/undraw_profile_3.svg"
+                                             src="~/Areas/admin/img/undraw_profile_3.svg"
                                              alt="..." />
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -391,7 +378,7 @@
                                aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                     src="img/undraw_profile.svg" />
+                                     src="~/Areas/admin/img/undraw_profile.svg" />
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -409,10 +396,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item"
-                                   href="~/Areas/admin/#"
-                                   data-toggle="modal"
-                                   data-target="#logoutModal">
+                                <a class="dropdown-item" asp-area="admin" asp-controller="account" asp-action="logout" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -473,7 +457,7 @@
                             data-dismiss="modal">
                         Cancel
                     </button>
-                    <a class="btn btn-primary" href="~/Areas/admin/login.html">Logout</a>
+                    <a class="btn btn-primary" asp-area="admin" asp-controller="account" asp-action="logout">Logout</a>
                 </div>
             </div>
         </div>
