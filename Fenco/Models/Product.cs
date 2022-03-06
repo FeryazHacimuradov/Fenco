@@ -17,8 +17,6 @@ namespace Fenco.Models
         [MaxLength(500), Required]
         public string About { get; set; }
 
-        [MaxLength(10), Required]
-        public string SKU { get; set; }
         [Column(TypeName = "ntext")]
         public string Description { get; set; }
         [ForeignKey("ProductCategory")]
@@ -27,6 +25,7 @@ namespace Fenco.Models
         [ForeignKey("Brand")]
         public int BrandId { get; set; }
         public Brand Brand { get; set; }
+        public DateTime CreatedDate { get; set; }
         public List<ColorToProduct> ColorToProducts { get; set; }
         public List<Review> Reviews { get; set; }
     }

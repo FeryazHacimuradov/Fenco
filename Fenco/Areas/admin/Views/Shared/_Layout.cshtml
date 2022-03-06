@@ -72,21 +72,43 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed"
                    href="~/Areas/admin/#"
                    data-toggle="collapse"
-                   data-target="#collapseTwo"
+                   data-target="#collapsePages"
                    aria-expanded="true"
-                   aria-controls="collapseTwo">
+                   aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Pages</span>
+                </a>
+                <div id="collapsePages"
+                     class="collapse"
+                     aria-labelledby="headingPages"
+                     data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Login Screens:</h6>
+                        <a class="collapse-item" asp-area="admin" asp-controller="product" asp-action="index">Products</a>
+                        <a class="collapse-item" asp-area="admin" asp-controller="product" asp-action="index">Product categoties</a>
+                        <a class="collapse-item" asp-area="admin" asp-controller="product" asp-action="index">Brands</a>
+
+                        <a class="collapse-item" href="~/Areas/admin/register.html">Register</a>
+                        <a class="collapse-item" href="~/Areas/admin/forgot-password.html">Forgot Password</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="~/Areas/admin/404.html">404 Page</a>
+                        <a class="collapse-item" href="~/Areas/admin/blank.html">Blank Page</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="~/Areas/admin/#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Components</span>
                 </a>
-                <div id="collapseTwo"
-                     class="collapse"
-                     aria-labelledby="headingTwo"
-                     data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="~/Areas/admin/buttons.html">Buttons</a>
@@ -96,29 +118,29 @@
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed"
-                   href="~/Areas/admin/#"
-                   data-toggle="collapse"
-                   data-target="#collapseUtilities"
-                   aria-expanded="true"
-                   aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities"
-                     class="collapse"
-                     aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="~/Areas/admin/utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="~/Areas/admin/utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="~/Areas/admin/utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="~/Areas/admin/utilities-other.html">Other</a>
+            @*<li class="nav-item">
+                    <a class="nav-link collapsed"
+                       href="~/Areas/admin/#"
+                       data-toggle="collapse"
+                       data-target="#collapseUtilities"
+                       aria-expanded="true"
+                       aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-wrench"></i>
+                        <span>Utilities</span>
+                    </a>
+                    <div id="collapseUtilities"
+                         class="collapse"
+                         aria-labelledby="headingUtilities"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Custom Utilities:</h6>
+                            <a class="collapse-item" href="~/Areas/admin/utilities-color.html">Colors</a>
+                            <a class="collapse-item" href="~/Areas/admin/utilities-border.html">Borders</a>
+                            <a class="collapse-item" href="~/Areas/admin/utilities-animation.html">Animations</a>
+                            <a class="collapse-item" href="~/Areas/admin/utilities-other.html">Other</a>
+                        </div>
                     </div>
-                </div>
-            </li>
+                </li>*@
 
             <!-- Divider -->
             <hr class="sidebar-divider" />
@@ -479,5 +501,7 @@
     <!-- Page level custom scripts -->
     <script src="~/Areas/admin/js/demo/chart-area-demo.js"></script>
     <script src="~/Areas/admin/js/demo/chart-pie-demo.js"></script>
+    <script src="~/Areas/admin/js/script.js"></script>
+
 </body>
 </html>

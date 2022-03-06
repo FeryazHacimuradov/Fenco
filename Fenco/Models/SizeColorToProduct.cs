@@ -19,6 +19,8 @@ namespace Fenco.Models
         public int ColorToProductId { get; set; }
         public ColorToProduct ColorToProduct { get; set; }
         public decimal Price { get; set; }
+        public decimal? DiscountPrice { get; set; }
+        public DateTime? DiscountDate { get; set; }
         public decimal Quantity { get; set; }
     }
 }
