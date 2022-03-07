@@ -1,0 +1,161 @@
+﻿@model List<SizeColorToProduct>
+
+<main>
+    <section id="second-page-heading">
+        <div class="container expanded">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-content">
+                        <h2>
+                            Welcome to
+                            <br>
+                            <em>Our Cart.</em>
+                        </h2>
+                        <span>Home / Our Shop / Cart</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="content-area">
+        <div class="container">
+            <div class="row">
+                <div class="site-main col-sm-12 full-width">
+                    <div class="entry-content">
+                        <form class="cart-form" action="#" method="post">
+                            <table class="shop_table shop_table_responsive cart-form__contents">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Product</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr class="cart-form cart_item">
+                                            <td class="product-remove">
+                                                <a href="#" class="remove">
+                                                    <i class="fa-solid fa-x"></i>
+                                                </a>
+                                            </td>
+                                            <td class="product-thumbnail">
+                                                <a href="#">
+                                                    <img src="~/Uploads/@item.ColorToProduct.ProductImages.FirstOrDefault().Image" class="attachment-thumbnail size-thumbnail" alt="">
+                                                </a>
+                                            </td>
+                                            <td class="product-name" data-title="Product">
+                                                <a href="#">Hyper shoe</a>
+                                            </td>
+                                            <td class="product-price" data-title="Price">
+                                                <span class="price-amount amount">
+                                                    <span class="price-currencySymbol">$</span>
+                                                    <span class="total" id="calculation">@item.Price</span>
+                                                </span>
+                                            </td>
+                                            <td class="product-quantity" data-title="Quantity">
+                                                <div class="counter">
+                                                    <button type="button" class="decrease prev btn">-</button>
+                                                    <button type="button" class="show-number btn" id="buttonCountNumber">1</button>
+                                                    <button type="button" class="increase next btn">+</button>
+                                                </div>
+                                            </td>
+                                            <td class="product-subtotal " data-title="Subtotal">
+                                                <span class="price-amount amount">
+                                                    <span class="price-currencySymbol ">$</span>
+                                                    <span class="total" id="calculation">@(item.Price*1)</span>
+                                                </span>
+                                            </td>
+                                        </tr>
+
+                                    }
+                                </tbody>
+                            </table>
+                        </form>
+                        <div class="cart-collaterals ">
+                            <div class="cart_totals ">
+                                <h2>Cart totals</h2>
+                                <table class="shop_table shop_table_responsive ">
+                                    <tbody>
+                                        <tr class="cart-subtotal ">
+                                            <th>Subtotal</th>
+                                            <td data-title="Subtotal ">
+                                                <span class="price-amount amount ">
+                                                    <span class="price-currencySymbol ">$</span> 170
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="order-total ">
+                                            <th>Total</th>
+                                            <td data-title="Total ">
+                                                <strong>
+                                                    <span class="price-amount amount ">
+                                                        <span class="price-currencySymbol ">$</span> 170
+                                                    </span>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="wc-proceed-to-checkout ">
+                                    <button type="button" class="btn btn-dark ">buy</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="fenco-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="info-item">
+                        <div class="inner-content">
+                            <div class="left-logo">
+                                <i class="fa-solid fa-truck"></i>
+                            </div>
+                            <div class="right-text">
+                                <h6>Free Shipping</h6>
+                                <span>Free, fast & secure delivery within 24h.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="info-item">
+                        <div class="inner-content">
+                            <div class="left-logo">
+                                <i class="fa-solid fa-shield-blank"></i>
+                            </div>
+                            <div class="right-text">
+                                <h6>Secure Payment</h6>
+                                <span>Up to 12 months open for support tickets.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="info-item">
+                        <div class="inner-content">
+                            <div class="left-logo">
+                                <i class="fa-solid fa-arrow-rotate-left"></i>
+                            </div>
+                            <div class="right-text">
+                                <h6>30 Days Return</h6>
+                                <span>30 days free returns for unhappy products.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

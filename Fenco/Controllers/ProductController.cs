@@ -1,6 +1,7 @@
 ﻿using Fenco.Data;
 using Fenco.Models;
 using Fenco.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -38,6 +39,56 @@ namespace Fenco.Controllers
             model.ProductCategories = _context.ProductCategories.ToList();
 
             return View(model); 
+        }
+
+        public IActionResult AddToCart(int sizeColorproductId)
+        {
+            string oldCart = Request.Cookies["cart"];
+            string newCart = "";
+
+            if (string.IsNullOrEmpty(oldCart))
+            {
+                newCart = sizeColorproductId + "";
+            }
+            else
+            {
+                List<string> oldCartList = oldCart.Split("-").ToList();
+
+                if (oldCartList.Any(i=>i==sizeColorproductId.ToString()))
+                {
+                    oldCartList.Remove(sizeColorproductId.ToString());
+                }
+                else
+                {
+                    oldCartList.Add(sizeColorproductId.ToString());
+                }
+
+                newCart = string.Join("-", oldCartList);
+            }
+
+            Response.Cookies.Append("cart", newCart);
+            return RedirectToAction("index");
+        }
+
+        public IActionResult Cart()
+        {
+            VmProduct model = new VmProduct();
+            model.Setting = _context.Settings.FirstOrDefault();
+            model.Socials = _context.Socials.ToList();
+            model.Services = _context.Services.ToList();
+
+            string cart = Request.Cookies["cart"];
+            List<SizeColorToProduct> sizeColorToProducts = new List<SizeColorToProduct>();
+            if (!string.IsNullOrEmpty(cart))
+            {
+                List<string> cartList = cart.Split("-").ToList();
+
+                sizeColorToProducts = _context.SizeColorToProducts.Include(cp => cp.ColorToProduct).ThenInclude(pi => pi.ProductImages)
+                                                                  .Include(cp => cp.ColorToProduct).ThenInclude(pi => pi.Product)
+                                                                  .Where(sp => cartList.Any(cl => cl == sp.Id.ToString())).ToList();
+            }
+
+            return View(sizeColorToProducts);
         }
     }
 }

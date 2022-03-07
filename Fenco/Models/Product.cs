@@ -25,7 +25,7 @@ namespace Fenco.Models
         [ForeignKey("Brand")]
         public int BrandId { get; set; }
         public Brand Brand { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public List<ColorToProduct> ColorToProducts { get; set; }
         public List<Review> Reviews { get; set; }
     }

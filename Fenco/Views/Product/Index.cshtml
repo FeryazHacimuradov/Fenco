@@ -1,6 +1,14 @@
 ﻿@model VmProduct
-@{
-    ViewData["Title"] = "Index";
+@inject IHttpContextAccessor _httpContext
+@{ 
+
+    string cart = _httpContext.HttpContext.Request.Cookies["cart"];
+    List<string> cartList = new List<string>();
+    if (!string.IsNullOrEmpty(cart))
+    {
+        cartList = cart.Split("-").ToList();
+
+    }
 }
 
 <main>
@@ -123,6 +131,22 @@
                                     <div class="col-lg-3">
                                         <div class="recent-item">
                                             <div class="thumb">
+                                                @{
+                                                    DateTime thirdDays = DateTime.Now.AddDays(-3);
+                                                    if (item.CreatedDate != null && item.CreatedDate > thirdDays)
+                                                    {
+                                                        <span class="banner">New</span>
+                                                    }
+
+                                                }
+                                                @*@{
+                                                    DateTime? itemDiscount = item.ColorToProducts.FirstOrDefault().SizeColorToProducts.FirstOrDefault().DiscountDate;
+                                                    if (itemDiscount != null && itemDiscount > DateTime.Now)
+                                                    {
+                                                        <span class="banner">Sale</span>
+                                                    }
+                                                }*@
+
                                                 <div class="hover-contet">
                                                     <ul class="icons">
                                                         <li>
@@ -132,7 +156,7 @@
                                                             <a href="product-details.html"><i class="fa-solid fa-eye"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                            <a asp-controller="product" asp-action="addToCart" asp-route-sizeColorproductId="@item.ColorToProducts.FirstOrDefault().SizeColorToProducts.FirstOrDefault().Id" class="@(cartList.Any(i=>i==item.ColorToProducts.FirstOrDefault().SizeColorToProducts.FirstOrDefault().Id.ToString())?"inCart":"")"><i class="fa-solid fa-basket-shopping"></i></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -140,8 +164,12 @@
                                             </div>
                                             <div class="down-content">
                                                 <h4><a href="product-details.html">@item.Name</a></h4>
-                                                <span class="price">$@item.ColorToProducts.FirstOrDefault().SizeColorToProducts.FirstOrDefault().Price</span>
+                                                <span class="price">
+                                                    $@item.ColorToProducts.FirstOrDefault().SizeColorToProducts.FirstOrDefault().Price
+                                                </span>
                                             </div>
+
+
                                         </div>
                                     </div>
 
