@@ -67,7 +67,7 @@
                                             <td class="product-subtotal " data-title="Subtotal">
                                                 <span class="price-amount amount">
                                                     <span class="price-currencySymbol ">$</span>
-                                                    <span class="total" id="calculation">@(item.Price*1)</span>
+                                                    <span class="total" id="calculation">@(item.Price * 1)</span>
                                                 </span>
                                             </td>
                                         </tr>
@@ -81,11 +81,27 @@
                                 <h2>Cart totals</h2>
                                 <table class="shop_table shop_table_responsive ">
                                     <tbody>
+                                        @{decimal? subTotal = Model.Sum(s => s.Price);}
                                         <tr class="cart-subtotal ">
                                             <th>Subtotal</th>
                                             <td data-title="Subtotal ">
                                                 <span class="price-amount amount ">
-                                                    <span class="price-currencySymbol ">$</span> 170
+                                                    <span class="price-currencySymbol ">$</span> @subTotal
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="cart-subtotal ">
+                                            <th>Shipping</th>
+                                            <td data-title="Subtotal ">
+                                                <span class="price-amount amount ">
+                                                    @if (subTotal >= 100)
+                                                    {
+                                                        <span class="price-currencySymbol ">Free</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="price-currencySymbol ">$</span><span>20</span>
+                                                    }
                                                 </span>
                                             </td>
                                         </tr>
@@ -94,7 +110,14 @@
                                             <td data-title="Total ">
                                                 <strong>
                                                     <span class="price-amount amount ">
-                                                        <span class="price-currencySymbol ">$</span> 170
+                                                        @if (subTotal >= 100)
+                                                        {
+                                                            <span class="price-currencySymbol ">$</span> @subTotal
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="woocommerce-Price-currencySymbol">$</span>@(subTotal+20)
+                                                        }
                                                     </span>
                                                 </strong>
                                             </td>

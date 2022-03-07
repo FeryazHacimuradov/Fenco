@@ -76,6 +76,7 @@ namespace Fenco.Controllers
             model.Setting = _context.Settings.FirstOrDefault();
             model.Socials = _context.Socials.ToList();
             model.Services = _context.Services.ToList();
+            
 
             string cart = Request.Cookies["cart"];
             List<SizeColorToProduct> sizeColorToProducts = new List<SizeColorToProduct>();
