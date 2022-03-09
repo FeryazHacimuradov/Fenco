@@ -10,6 +10,9 @@ namespace Fenco.ViewModels
     {
         public List<Product> Products { get; set; }
         public List<ProductCategory> ProductCategories { get; set; }
+        public List<SizeColorToProduct> SizeColorToProducts { get; set; }
+        public List<ColorToProduct> ColorToProducts { get; set; }
+        public List<ProductImage> ProductImages { get; set; }
         public int PageCount { get; set; }
         public double ItemCount { get; set; } = 12;
         public int Page { get; set; } = 1;

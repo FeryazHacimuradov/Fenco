@@ -44,12 +44,12 @@
                                                 </a>
                                             </td>
                                             <td class="product-thumbnail">
-                                                <a href="#">
+                                                <a asp-controller="product" asp-action="details" asp-route-id="@item.Id">
                                                     <img src="~/Uploads/@item.ColorToProduct.ProductImages.FirstOrDefault().Image" class="attachment-thumbnail size-thumbnail" alt="">
                                                 </a>
                                             </td>
                                             <td class="product-name" data-title="Product">
-                                                <a href="#">Hyper shoe</a>
+                                                <a asp-controller="product" asp-action="details" asp-route-id="@item.Id">"@item.ColorToProduct.Product.Name"</a>
                                             </td>
                                             <td class="product-price" data-title="Price">
                                                 <span class="price-amount amount">

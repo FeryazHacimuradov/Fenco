@@ -41,6 +41,23 @@ namespace Fenco.Controllers
             return View(model); 
         }
 
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Product product = _context.Products
+                                               .Include(c => c.ColorToProducts).ThenInclude(pi => pi.ProductImages)
+                                               .Include(c => c.ColorToProducts).ThenInclude(sp => sp.SizeColorToProducts).ThenInclude(s => s.Size)
+                                               .Include(c => c.ColorToProducts).ThenInclude(co => co.Color)
+                                               .Include(ca => ca.ProductCategory)
+                                               .FirstOrDefault(p => p.Id == id);
+
+            return View(product);
+        }
+
         public IActionResult AddToCart(int sizeColorproductId)
         {
             string oldCart = Request.Cookies["cart"];
@@ -76,7 +93,6 @@ namespace Fenco.Controllers
             model.Setting = _context.Settings.FirstOrDefault();
             model.Socials = _context.Socials.ToList();
             model.Services = _context.Services.ToList();
-            
 
             string cart = Request.Cookies["cart"];
             List<SizeColorToProduct> sizeColorToProducts = new List<SizeColorToProduct>();

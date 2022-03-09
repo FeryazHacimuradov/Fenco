@@ -1,0 +1,294 @@
+﻿@model Product
+
+<main>
+    <section id="page-heading">
+        <div class="container expanded">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-content">
+                        <h2>
+                            Welcome to
+                            <br>
+                            <em>Single Product Title.</em>
+                        </h2>
+                        <span>HOME / OUR SHOP / WOMEN COLLECTION / WOMEN ULTRA LIGHT HOODED<em> PORTFOLIO </em></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="slider">
+                        <div class="owl-carousel owl-theme">
+                            @foreach (var item in Model.ColorToProducts)
+                            {
+                                foreach (var item2 in item.ProductImages)
+                                {
+                                    <div class="item">
+                                        <div class="image">
+                                            <div class="img-box">
+                                                <div class="img-box-inner">
+                                                    <img src="~/Uploads/@item2.Image" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <span class="price">$ @Model.ColorToProducts.FirstOrDefault().SizeColorToProducts.FirstOrDefault().Price</span>
+                        <h4>@Model.Name</h4>
+                        <ul class="info">
+                            <li>
+                                <ul class="stars">
+                                    <li>
+                                        <i class="fa-thin fa fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-thin fa fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-thin fa fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-thin fa fa-star"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fa-thin fa fa-star"></i>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>13 Reviews</span>
+                            </li>
+                        </ul>
+                        <p>
+                            @Model.About
+                        </p>
+                        <form action="submit">
+                            <input class="quantity-text" placeholder="1">
+                            <button type="submit" id="form-submit" class="main-dark-button">Add to cart</button>
+                        </form>
+                        <span class="tags">
+                            <a href="#">@Model.ProductCategory.Name</a>
+                            <a href="#">Fashion</a>
+                            <a href="#">New Collection</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="product-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Description</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Additional Information</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Reviews (6)</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <p>
+                                Intelligentsia celiac authentic, jianbing cliche wayfarers stumptown chambray fanny pack pop-up bushwick vinyl messenger bag copper mug. Skateboard VHS unicorn crucifix woke cronut viral activated charcoal, everyday carry four dollar toast organic blog
+                                gastropub. Lyft chambray unicorn drinking vinegar, before they sold out intelligentsia PBR&B af street art shoreditch put a bird on it green juice.
+                                <br>
+                                <br> Coloring book scenester farm-to-table quinoa. Food truck raclette lumbersexual, jean shorts art party bushwick taiyaki iceland. 90's brunch tousled try-hard. Master cleanse PBR&B synth mustache cardigan offal chartreuse.
+                            </p>
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <p>
+                                Intelligentsia celiac authentic, jianbing cliche wayfarers stumptown chambray fanny pack pop-up bushwick vinyl messenger bag copper mug. Skateboard VHS unicorn crucifix woke cronut viral activated charcoal, everyday carry four dollar toast organic blog
+                                gastropub. Lyft chambray unicorn drinking vinegar, before they sold out intelligentsia PBR&B af street art shoreditch put a bird on it green juice.
+                                <br>
+                            </p>
+                            <ul class="info">
+                                <li>Weight: <span>5.54KG</span></li>
+                                <li>Demensions: <span>143CM x 250CM</span></li>
+                                <li>Color: <span>@Model.ColorToProducts.FirstOrDefault().Color.Name</span></li>
+                            </ul>
+                            <br>
+                            <p class="second">Coloring book scenester farm-to-table quinoa. Food truck raclette lumbersexual, jean shorts art party bushwick taiyaki iceland. 90's brunch tousled try-hard. Master cleanse PBR&B synth mustache cardigan offal chartreuse.</p>
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                            <ul class="reviews">
+                                <li>
+                                    <div class="review-author-image">
+                                        <img src="/img/comment-author-01.jpeg" alt="">
+                                    </div>
+                                    <div class="name-date align-self-center">
+                                        <h6>Robert Imeri <span>January 10, 2020</span></h6>
+                                    </div>
+                                    <ul class="rate align-self-center">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <div class="right-content align-self-center">
+                                        <p>Franzen tumeric sriracha quinoa goard level. Cold kinfolk cronut short ditch freegan kistrater selfies.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="review-author-image">
+                                        <img src="/img/comment-author-01.jpeg" alt="">
+                                    </div>
+                                    <div class="name-date align-self-center">
+                                        <h6>Robert Imeri <span>January 10, 2020</span></h6>
+                                    </div>
+                                    <ul class="rate align-self-center">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <div class="right-content align-self-center">
+                                        <p>Cold-pressed kinfolk cronut short ditch freegan kistrater selfies.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="review-author-image">
+                                        <img src="/img/comment-author-01.jpeg" alt="">
+                                    </div>
+                                    <div class="name-date align-self-center">
+                                        <h6>Robert Imeri <span>January 10, 2020</span></h6>
+                                    </div>
+                                    <ul class="rate align-self-center">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <div class="right-content align-self-center">
+                                        <p>Franzen tumeric sriracha and quinoa goard next level.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="review-author-image">
+                                        <img src="/img/comment-author-01.jpeg" alt="">
+                                    </div>
+                                    <div class="name-date align-self-center">
+                                        <h6>Robert Imeri <span>January 10, 2020</span></h6>
+                                    </div>
+                                    <ul class="rate align-self-center">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <div class="right-content align-self-center">
+                                        <p>Cold-pressed kinfolk cronut short ditch freegan kistrater selfies.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="review-author-image">
+                                        <img src="/img/comment-author-01.jpeg" alt="">
+                                    </div>
+                                    <div class="name-date align-self-center">
+                                        <h6>Robert Imeri <span>January 10, 2020</span></h6>
+                                    </div>
+                                    <ul class="rate align-self-center">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <div class="right-content align-self-center">
+                                        <p>Franzen tumeric sriracha quinoa goard level. Cold kinfolk cronut short ditch freegan kistrater selfies.</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="review-author-image">
+                                        <img src="/img/comment-author-01.jpeg" alt="">
+                                    </div>
+                                    <div class="name-date align-self-center">
+                                        <h6>Robert Imeri <span>January 10, 2020</span></h6>
+                                    </div>
+                                    <ul class="rate align-self-center">
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <div class="right-content align-self-center">
+                                        <p>Franzen tumeric sriracha and quinoa goard next level.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="fenco-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="info-item">
+                        <div class="inner-content">
+                            <div class="left-logo">
+                                <i><svg viewBox="0 0 24 24" width="52" height="52" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></i>
+                            </div>
+                            <div class="right-text">
+                                <h6>Free Shipping</h6>
+                                <span>Free, fast &amp; secure delivery within 24h.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="info-item">
+                        <div class="inner-content">
+                            <div class="left-logo">
+                                <i><svg viewBox="0 0 24 24" width="52" height="52" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></i>
+                            </div>
+                            <div class="right-text">
+                                <h6>Secure Payment</h6>
+                                <span>Up to 12 months open for support tickets.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="info-item">
+                        <div class="inner-content">
+                            <div class="left-logo">
+                                <i><svg viewBox="0 0 24 24" width="52" height="52" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg></i>
+                            </div>
+                            <div class="right-text">
+                                <h6>30 Days Return</h6>
+                                <span>30 days free returns for unhappy products.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

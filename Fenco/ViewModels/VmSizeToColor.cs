@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Fenco.ViewModels
 {
-    public class VmSizeToColor
+    public class VmSizeToColor:VmLayout
     {
         public int ColorId { get; set; }
         public int SizeId { get; set; }
