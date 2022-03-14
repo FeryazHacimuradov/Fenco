@@ -187,6 +187,5 @@ namespace Fenco.Areas.admin.Controllers
             return RedirectToAction("index");
         }
 
-
     }
 }

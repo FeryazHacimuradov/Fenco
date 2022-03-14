@@ -35,70 +35,74 @@
                     <div class="sidebar-filter">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="sidebar-widget search-box">
-                                    <input type="search" placeholder="Type here to search...">
-                                </div>
+                                <form asp-controller="product" asp-action="index" method="get" class="sidebar-widget search-box">
+                                    <label>
+                                        <input type="search" placeholder="Type here to search..." asp-for="@Model.searchData">
+                                        <input asp-for="@Model.prdId" hidden />
+                                        <input asp-for="@Model.MinPrice" hidden />
+                                        <input asp-for="@Model.MaxPrice" hidden />
+                                    </label>
+                                    <input type="submit" class="search-submit mt-3" value="Search">
+                                </form>
                             </div>
                             <div class="col-lg-12">
-                                <div class="sidebar-widget search-filter">
+                                <form asp-controller="product" asp-action="index" method="get" class="sidebar-widget search-filter">
                                     <h4>Search Filter</h4>
                                     <div class="select">
                                         <select id="collection">
                                             <option value="default" selected>Collection Type</option>
-                                            <option value="men">Men Collection</option>
-                                            <option value="women">Women Collection</option>
-                                            <option value="kids">Kids Collection Type</option>
+                                            @foreach (var item in Model.ProductCategories)
+                                            {
+                                                <option  asp-route-prdId="@item.Id" asp-route-searcData="@Model.searchData" asp-route-MinPrice="@Model.MinPrice" asp-route-MaxPrice="@Model.MaxPrice">@item.Name</option>
+                                            }
                                         </select>
                                     </div>
                                     <div class="select">
                                         <select id="color">
                                             <option value="default" selected>Product Color</option>
-                                            <option value="red">Red Color</option>
-                                            <option value="blue">Blue Color</option>
-                                            <option value="Green">Green Color</option>
+                                            @foreach (var item in Model.Colors)
+                                            {
+                                                <option value="red">@item.Name</option>
+                                            }
                                         </select>
                                     </div>
                                     <div class="select">
                                         <select id="size">
-                                            <option value="default" selected>Product Color</option>
-                                            <option value="red">Red Color</option>
-                                            <option value="blue">Blue Color</option>
-                                            <option value="Green">Green Color</option>
+                                            <option value="default" selected>Product Size</option>
+                                            @foreach (var item in Model.Sizes)
+                                            {
+                                                <option value="S">@item.Name</option>
+
+                                            }
                                         </select>
                                     </div>
-                                    <div class="select">
-                                        <select id="price">
-                                            <option value="default" selected>Price Range</option>
-                                            <option value="0-50">$0-$50</option>
-                                            <option value="50-100">$50-$100</option>
-                                            <option value="100+">$100+</option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" id="form-submit" class="main-dark-button">Search Now</button>
-                                </div>
+                                    <input asp-for="@Model.prdId" hidden />
+                                    <input asp-for="@Model.MinPrice" hidden />
+                                    <input asp-for="@Model.MaxPrice" hidden />
+                                    <button type="submit" class="main-dark-button">Search Now</button>
+                                </form>
+                            </div>
+                            <div class="col-lg-12">
+                                <form asp-controller="product" asp-action="index" method="get" class="sidebar-widget search-box">
+                                    <label>
+                                        <input asp-for="@Model.MinPrice" placeholder="Min Price" class="mb-3">
+                                        <input asp-for="@Model.MaxPrice" placeholder="Max Price">
+                                        <input asp-for="@Model.prdId" hidden />
+                                        <input asp-for="@Model.searchData" hidden />
+                                    </label>
+                                    <button type="submit" class="search-submit mt-3">Fillter</button>
+                                </form>
                             </div>
                             <div class="col-lg-12">
                                 <div class="sidebar-widget products-categories">
                                     <h4>Products Categories</h4>
                                     <ul>
-                                        <li>
-                                            <a href="#">Women Collection <em>36</em></a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Men Collection <em>43</em></a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Kids Collection <em>62</em></a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Accesories <em>36</em></a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Hot Deals <em>8</em></a>
-                                        </li>
-                                        <li>
-                                            <a href="#">New Arrivals <em>24</em></a>
-                                        </li>
+                                        @foreach (var item in Model.ProductCategories)
+                                        {
+                                            <li>
+                                                <a asp-controller="product" asp-action="index" asp-route-prdId="@item.Id" asp-route-searcData="@Model.searchData" asp-route-MinPrice="@Model.MinPrice" asp-route-MaxPrice="@Model.MaxPrice">@item.Name<em>5@*@item.Products.Count*@</em></a>
+                                            </li>
+                                        }
                                     </ul>
                                 </div>
                             </div>

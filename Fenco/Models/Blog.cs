@@ -17,25 +17,17 @@ namespace Fenco.Models
         [ForeignKey("BlogImage"), Required]
         public int BlogImageId { get; set; }
         public BlogImage BlogImage { get; set; }
-
-
         [ForeignKey("BlogContent"), Required]
         public int BlogContentId { get; set; }
         public BlogContent BlogContent { get; set; }
-
-
-
         [ForeignKey("Category"), Required]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-
-
         public DateTime CreatedDate { get; set; }
-
-
         [ForeignKey("CustomUser")]
         public string CustomUserId { get; set; }
         [NotMapped]
         public CustomUser CustomUser { get; set; }
+
     }
 }

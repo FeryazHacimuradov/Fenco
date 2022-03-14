@@ -137,7 +137,12 @@ namespace Fenco.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int?>("ParentColorId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ParentColorId");
 
                     b.ToTable("Colors");
                 });
@@ -440,7 +445,12 @@ namespace Fenco.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int?>("ParentSizeId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ParentSizeId");
 
                     b.ToTable("Sizes");
                 });
@@ -815,6 +825,15 @@ namespace Fenco.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("Fenco.Models.Color", b =>
+                {
+                    b.HasOne("Fenco.Models.Color", "ParentColor")
+                        .WithMany()
+                        .HasForeignKey("ParentColorId");
+
+                    b.Navigation("ParentColor");
+                });
+
             modelBuilder.Entity("Fenco.Models.ColorToProduct", b =>
                 {
                     b.HasOne("Fenco.Models.Color", "Color")
@@ -928,6 +947,15 @@ namespace Fenco.Migrations
                         .HasForeignKey("ProductId");
 
                     b.Navigation("CustomUser");
+                });
+
+            modelBuilder.Entity("Fenco.Models.Size", b =>
+                {
+                    b.HasOne("Fenco.Models.Size", "ParentSize")
+                        .WithMany()
+                        .HasForeignKey("ParentSizeId");
+
+                    b.Navigation("ParentSize");
                 });
 
             modelBuilder.Entity("Fenco.Models.SizeColorToProduct", b =>

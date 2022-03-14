@@ -1,6 +1,7 @@
 ﻿using Fenco.Data;
 using Fenco.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,9 @@ namespace Fenco.Controllers
             model.Setting = _context.Settings.FirstOrDefault();
             model.Socials = _context.Socials.ToList();
             model.Services = _context.Services.ToList();
+            model.Categories = _context.Categories.Include(b => b.Blogs).ToList();
+            model.Portfolios = _context.Portfolios.Include(i => i.PortfolioImage).Where(p => (model.prId != null ? p.CategoryId == model.prId : true)).ToList();
+            model.Tags = _context.Tags.ToList();
 
             return View(model);
         }

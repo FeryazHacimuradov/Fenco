@@ -29,84 +29,27 @@
                         <div class="col-lg-12">
                             <div class="row justify-content-center masonry-layout filters-content normal-col-gap">
 
-                                @*@foreach (var item in Model.Blogs)
+                                @foreach (var item in Model.Blogs)
                                 {
                                     <div class="col-lg-12 masonry-item all category-kids category-women">
                                         <div class="entries-item ">
                                             <div class="thumb ">
-                                                <a href="blog-details.html"><img src="/img/@item.BlogImage.Image " alt=" "></a>
+                                                <a href="blog-details.html"><img src="~/Uploads/@item.BlogImage.Image" alt=" "></a>
                                             </div>
                                             <div class="down-content ">
                                                 <span class="date ">@item.CreatedDate / By: <a href="blog-details.html">fenco Admin</a> / Culture, Fashion, Branding</span>
                                                 <a href="blog-details.html">
                                                     <h4>@item.Title</h4>
                                                 </a>
-                                                <p>Cornhole tacos hammock, chillwave cold-pressed butcher selfies yuccie coloring book +1 artisan. Trade chicharrones raw denim beard kombucha cold-pressed iPhone locavore blue bottle...</p>
+                                                <p>@(item.BlogContent.Content.Length>30? item.BlogContent.Content.Substring(0,200)+"...": item.BlogContent.Content)</p>
                                                 <div class="border-dark-button ">
-                                                    <a asp-controller="Blog" asp-action="Details" asp-route-id="@item.Id">Discover More</a>
+                                                    <a asp-controller="blog" asp-action="details" asp-route-id="@item.Id">Discover More</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                }
 
-                                }*@
-                                <div class="col-lg-12 masonry-item all category-kids category-men">
-                                    <div class="entries-item ">
-                                        <div class="thumb ">
-                                            <a href="blog-details.html"><img src="/img/blog-post-02.jpeg " alt=" "></a>
-                                        </div>
-                                        <div class="down-content ">
-                                            <span class="date ">13 November 2020 / By: <a href="blog-details.html">fenco Admin</a> / Culture, Fashion, Branding</span>
-                                            <a href="blog-details.html">
-                                                <h4>Must-Have Skater Girl Items</h4>
-                                            </a>
-                                            <p>
-                                                Narwhal slow-carb gluten-free direct trade literally copper mug banjo letterpress street art quinoa listicle roof party mlkshk paleo. Lo-fi vice offal quinoa. Chartreuse helvetica shoreditch lo-fi literally
-                                                waistcoat letterpress air plant...
-                                            </p>
-                                            <div class="border-dark-button ">
-                                                <a href="blog-details.html ">Discover More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 masonry-item all category-men category-deals">
-                                    <div class="entries-item ">
-                                        <div class="thumb ">
-                                            <a href="blog-details.html"><img src="/img/blog-post-03.jpeg " alt=" "></a>
-                                        </div>
-                                        <div class="down-content ">
-                                            <span class="date ">13 November 2020 / By: <a href="blog-details.html">fenco Admin</a> / Culture, Fashion, Branding</span>
-                                            <a href="blog-details.html">
-                                                <h4>Must-Have Skater Girl Items</h4>
-                                            </a>
-                                            <p>Subway tile master cleanse palo santo mumblecore vice chicharrones. Four loko tote bag PBR&B, leggings echo park letterpress hoodie...</p>
-                                            <div class="border-dark-button ">
-                                                <a href="blog-details.html ">Discover More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 masonry-item all category-women">
-                                    <div class="entries-item last-entries-item ">
-                                        <div class="thumb ">
-                                            <a href="blog-details.html"><img src="/img/blog-post-01.jpeg " alt=" "></a>
-                                        </div>
-                                        <div class="down-content ">
-                                            <span class="date ">13 November 2020 / By: <a href="blog-details.html">fenco Admin</a> / Culture, Fashion, Branding</span>
-                                            <a href="blog-details.html">
-                                                <h4>Must-Have Skater Girl Items</h4>
-                                            </a>
-                                            <p>
-                                                Cornhole tacos hammock, chillwave cold-pressed butcher selfies yuccie coloring book +1 artisan. Single-origin coffee actually deep v 90's, tofu blue bottle cred poutine. Sustainable poutine kogi etsy jean
-                                                shorts fam farm-to-table direct trade listicle twee put a bird on it keytar...
-                                            </p>
-                                            <div class="border-dark-button ">
-                                                <a href="blog-details.html ">Discover More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <!-- <div class="col-lg-12">
@@ -121,7 +64,7 @@
                         <div class="row ">
                             <div class="col-lg-12 ">
                                 <div class="sidebar-widget search-box ">
-                                    <input type="search " placeholder="Type here to search... ">
+                                    <input type="search" placeholder="Type here to search... ">
                                 </div>
                             </div>
                             <div class="col-lg-12 ">
@@ -160,14 +103,12 @@
                             </div>
                             <div class="col-lg-12 ">
                                 <div class="sidebar-widget products-categories ">
-                                    <h4>Products Categories</h4>
+                                    <h4>Categories</h4>
                                     <ul>
-                                        <li><a href="grid-categories.html ">Women Collection <em>36</em></a></li>
-                                        <li><a href="grid-categories.html ">Men Collection <em>43</em></a></li>
-                                        <li><a href="grid-categories.html ">Kids Collection <em>62</em></a></li>
-                                        <li><a href="grid-categories.html ">Accessories <em>18</em></a></li>
-                                        <li><a href="grid-categories.html ">Hot Deals <em>8</em></a></li>
-                                        <li><a href="grid-categories.html ">New Arrivals <em>24</em></a></li>
+                                        @foreach (var item in Model.Categories)
+                                        {
+                                            <li><a href="grid-categories.html ">@item.Name <em>@item.Blogs.Count</em></a></li>
+                                        }
                                     </ul>
                                 </div>
                             </div>

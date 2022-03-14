@@ -10,7 +10,11 @@ namespace Fenco.ViewModels
     {
         public List<Product> Products { get; set; }
         public List<Blog> Blogs { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<Portfolio> Portfolios { get; set; }
         public Blog Blog { get; set; }
-
+        public Portfolio Portfolio { get; set; }
+        public List<Tag> Tags { get; set; }
+        public int? prId { get; set; }
     }
 }

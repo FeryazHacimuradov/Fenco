@@ -21,6 +21,8 @@ namespace Fenco.Controllers
         }
         public IActionResult Index(VmProduct model)
         {
+            //VmProduct model = new VmProduct();
+
             model.Setting = _context.Settings.FirstOrDefault();
             model.Socials = _context.Socials.ToList();
             model.Services = _context.Services.ToList();
@@ -37,6 +39,10 @@ namespace Fenco.Controllers
             model.PageCount = (int)Math.Ceiling(products.Count / model.ItemCount);
             model.Products = products.Skip((model.Page - 1) * (int)model.ItemCount).Take((int)model.ItemCount).ToList();
             model.ProductCategories = _context.ProductCategories.ToList();
+            model.Colors = _context.Colors.ToList();
+            model.Sizes = _context.Sizes.ToList();
+            //model.searchData = searchData;
+            //model.prdId = prdId;
 
             return View(model); 
         }

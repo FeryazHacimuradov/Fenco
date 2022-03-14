@@ -1,4 +1,4 @@
-﻿
+﻿@model VmHome 
 @{
     ViewData["Title"] = "Index";
 }
@@ -28,159 +28,45 @@
                     <div class="portfolio-filters">
                         <ul>
                             <li class="active" data-filter="*">All Products</li>
-                            <li data-filter=".category-women">Women</li>
-                            <li data-filter=".category-men">Men</li>
-                            <li data-filter=".category-kids">Kids</li>
-                            <li data-filter=".category-accessories">Accessories</li>
-                            <li data-filter=".category-deals">Hot Deals</li>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li data-filter=".category-women"><a asp-controller="portfolio" asp-action="index" asp-route-prId="@item.Id" style="color: #000;">@item.Name</a></li>
+                            }
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="row masonry-layout filters-content normal-col-gap">
-                        <div class="col-md-4 masonry-item all category-kids category-women">
-                            <div class="portfolio-item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul class="icons">
-                                            <li><a href="portfolio-details"><i><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="img-box">
-                                        <div class="img-box-inner">
-                                            <img src="/img/portfolio-masonry-01.jpeg" alt="">
+                        @foreach (var item in Model.Portfolios)
+                        {
+                            <div class="col-md-4 masonry-item all category-kids category-women">
+                                <div class="portfolio-item">
+                                    <div class="thumb">
+                                        <div class="hover-content">
+                                            <ul class="icons">
+                                                <li><a href="portfolio-details"><i><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="img-box">
+                                            <div class="img-box-inner">
+                                                <img src="~/Uploads/@item.PortfolioImage.Image" alt="">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="down-content">
-                                    <h4><a href="portfolio-details">Classic Men Casual Straight</a></h4>
-                                    <span class="category">Branding</span>
+                                    <div class="down-content">
+                                        <h4><a href="portfolio-details">@item.Title</a></h4>
+                                        <span class="category">@item.Category.Name</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 masonry-item all category-kids category-men">
-                            <div class="portfolio-item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul class="icons">
-                                            <li><a href="portfolio-details"><i><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="img-box">
-                                        <div class="img-box-inner">
-                                            <img src="/img/portfolio-masonry-02.jpeg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="down-content">
-                                    <h4><a href="portfolio-details">Classic Men Casual Straight</a></h4>
-                                    <span class="category">Branding</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 masonry-item all category-men category-deals">
-                            <div class="portfolio-item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul class="icons">
-                                            <li><a href="portfolio-details"><i><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="img-box">
-                                        <div class="img-box-inner">
-                                            <img src="/img/portfolio-masonry-03.jpeg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="down-content">
-                                    <h4><a href="portfolio-details">Classic Men Casual Straight</a></h4>
-                                    <span class="category">Branding</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 masonry-item all category-women">
-                            <div class="portfolio-item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul class="icons">
-                                            <li><a href="portfolio-details"><i><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="img-box">
-                                        <div class="img-box-inner">
-                                            <img src="/img/portfolio-masonry-04.jpeg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="down-content">
-                                    <h4><a href="portfolio-details">Classic Men Casual Straight</a></h4>
-                                    <span class="category">Branding</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 masonry-item all category-men category-accessories">
-                            <div class="portfolio-item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul class="icons">
-                                            <li><a href="portfolio-details"><i><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="img-box">
-                                        <div class="img-box-inner">
-                                            <img src="/img/portfolio-masonry-05.jpeg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="down-content">
-                                    <h4><a href="portfolio-details">Classic Men Casual Straight</a></h4>
-                                    <span class="category">Branding</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 masonry-item all category-kids category-deals">
-                            <div class="portfolio-item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul class="icons">
-                                            <li><a href="portfolio-details"><i><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="img-box">
-                                        <div class="img-box-inner">
-                                            <img src="/img/portfolio-masonry-06.jpeg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="down-content">
-                                    <h4><a href="portfolio-details">Classic Men Casual Straight</a></h4>
-                                    <span class="category">Branding</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 masonry-item all category-kids category-accessories">
-                            <div class="portfolio-item">
-                                <div class="thumb">
-                                    <div class="hover-content">
-                                        <ul class="icons">
-                                            <li><a href="portfolio-details"><i><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></i></a></li>
-                                        </ul>
-                                    </div>
-                                    <img src="img/portfolio-masonry-07.jpeg" alt="">
-                                </div>
-                                <div class="down-content">
-                                    <h4><a href="portfolio-details">Classic Men Casual Straight</a></h4>
-                                    <span class="category">Branding</span>
-                                </div>
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
-                <div class="col-lg-12">
+                @*<div class="col-lg-12">
                     <div class="border-dark-button">
                         <a href="full-width-portfolio.html">Load More Products</a>
                     </div>
-                </div>
+                </div>*@
             </div>
         </div>
     </section>

@@ -23,7 +23,8 @@ namespace Fenco.Controllers
             model.Setting = _context.Settings.FirstOrDefault();
             model.Socials = _context.Socials.ToList();
             model.Services = _context.Services.ToList();
-            //model.Blogs = _context.Blogs.Include(u=>u.CustomUser).ToList();
+            model.Categories = _context.Categories.Include(b => b.Blogs).ToList();
+            model.Blogs = _context.Blogs.Include(i => i.BlogImage).Include(c => c.BlogContent).ToList();
 
             return View(model);
         }
@@ -33,7 +34,7 @@ namespace Fenco.Controllers
             model.Setting = _context.Settings.FirstOrDefault();
             model.Socials = _context.Socials.ToList();
             model.Services = _context.Services.ToList();
-            model.Blog = _context.Blogs.Include(i=>i.BlogImage).FirstOrDefault(b=>b.Id==id);
+            model.Blog = _context.Blogs.Include(i => i.BlogImage).Include(c => c.BlogContent).FirstOrDefault(b => b.Id == id);
 
             return View(model);
         }

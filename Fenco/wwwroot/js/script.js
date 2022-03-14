@@ -1,3 +1,11 @@
+ const btnScrollToTop = document.querySelector("#btnScrollToTop");
+    btnScrollToTop.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth"
+    });
+});
 
 function controlQuantity(event, increase = false) {
     let quantityElement = event.target.closest(".counter").children[1];

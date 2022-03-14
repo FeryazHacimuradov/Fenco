@@ -13,6 +13,8 @@ namespace Fenco.ViewModels
         public List<SizeColorToProduct> SizeColorToProducts { get; set; }
         public List<ColorToProduct> ColorToProducts { get; set; }
         public List<ProductImage> ProductImages { get; set; }
+        public List<Color> Colors { get; set; }
+        public List<Size> Sizes { get; set; }
         public int PageCount { get; set; }
         public double ItemCount { get; set; } = 12;
         public int Page { get; set; } = 1;
