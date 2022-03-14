@@ -157,10 +157,14 @@
                                                             <a href="#"><i class="fa-solid fa-heart"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a asp-controller="product" asp-action="details" asp-route-id="@item.Id" ><i class="fa-solid fa-eye"></i></a>
+                                                            <a asp-controller="product" asp-action="details" asp-route-id="@item.Id"><i class="fa-solid fa-eye"></i></a>
                                                         </li>
                                                         <li>
-                                                            <a asp-controller="product" asp-action="addToCart" asp-route-sizeColorproductId="@item.ColorToProducts.FirstOrDefault().SizeColorToProducts.FirstOrDefault().Id" class="@(cartList.Any(i=>i==item.ColorToProducts.FirstOrDefault().SizeColorToProducts.FirstOrDefault().Id.ToString())?"inCart":"")"><i class="fa-solid fa-basket-shopping"></i></a>
+                                                            <a asp-controller="product" asp-action="addToCart" 
+                                                               asp-route-sizeColorproductId="@item.ColorToProducts.FirstOrDefault().SizeColorToProducts.FirstOrDefault().Id" 
+                                                               class="@(cartList.Any(i=>i==item.ColorToProducts.FirstOrDefault()
+                                                                                                                                .SizeColorToProducts.FirstOrDefault().Id.ToString())?"inCart":"")">
+                                                            <i class="fa-solid fa-basket-shopping"></i></a>
                                                         </li>
                                                     </ul>
                                                 </div>

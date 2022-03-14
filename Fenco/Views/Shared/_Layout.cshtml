@@ -1,5 +1,6 @@
-﻿@*@model VmLayout*@
-@inject IHttpContextAccessor _httpContext
+﻿@inject IHttpContextAccessor _httpContext
+@inject UserManager<IdentityUser> _userManager
+@inject SignInManager<IdentityUser> _signInManager
 @{
 
     string cart = _httpContext.HttpContext.Request.Cookies["cart"];
@@ -73,7 +74,21 @@
                                 @*<a class="nav-link" aria-current="page" asp-controller="Basket" asp-action="Index"><i class="fa-solid fa-basket-shopping"></i></a>*@
                             </li>
                             <li class="nav-item user">
-                                <a class="nav-link" aria-current="page" asp-controller="account" asp-action="login"><i class="fa-solid fa-user-large"></i></a>
+                                <a class="nav-link" aria-current="page" href=""><i class="fa-solid fa-user-large"></i></a>
+                                <div class="login-dropdown">
+                                    <div class="user-notloggedin-container">
+                                        @if (_signInManager.IsSignedIn(User))
+                                        {
+                                            <div class="login-button"><a>@(_userManager.GetUserName(User).Length>10? _userManager.GetUserName(User).Substring(0,17)+"...": _userManager.GetUserName(User))</a></div>
+                                            <div class="signup-button"><a asp-controller="account" asp-action="logout">Logout</a></div>
+                                        }
+                                        else
+                                        {
+                                            <div class="login-button"><a asp-controller="account" asp-action="login">Signin</a></div>
+                                            <div class="signup-button"><a asp-controller="account" asp-action="register">Signup</a></div>
+                                        }
+                                    </div>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -84,137 +99,7 @@
 
     @RenderBody()
 
-    <footer class="second-footer second-footer-homepage">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="about-us">
-                        <div class="logo">
-                            <img src="/img/logo-icon.png" alt="">
-                            <div class="right-content">
-                                <h2>Fenco</h2>
-                                <span>Fashion, Cosmetics & Beauty</span>
-                            </div>
-                        </div>
-                        <p>I'm baby master cleanse health goth etsy gastropub. Bitters whatever small batch fingerstache mumblecore, palo santo umami typewriter tattooed truffaut blue bottle twee.</p>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="footer-widget">
-                        <h4>Policy Info</h4>
-                        <ul>
-                            <li>
-                                <a href="#">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a href="#">Terms of Use</a>
-                            </li>
-                            <li>
-                                <a href="#">Terms of Sale</a>
-                            </li>
-                            <li>
-                                <a href="#">Report Abuse</a>
-                            </li>
-                            <li>
-                                <a href="#">Report Spam</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="footer-widget">
-                        <h4>Useful Links</h4>
-                        <ul>
-                            <li>
-                                <a href="#">Women Collection</a>
-                            </li>
-                            <li>
-                                <a href="#">Man Collection</a>
-                            </li>
-                            <li>
-                                <a href="#">Kids Collection</a>
-                            </li>
-                            <li>
-                                <a href="#">Accesories</a>
-                            </li>
-                            <li>
-                                <a href="#">Gift & Gift Cards</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="footer-widget">
-                        <h4>Customer Support</h4>
-                        <ul>
-                            <li>
-                                <a href="#">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="#">FAQs</a>
-                            </li>
-                            <li>
-                                <a href="#">Order Tracking</a>
-                            </li>
-                            <li>
-                                <a href="#">Shopping & Returns</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="sub-footer">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <p>© All rights reserved. Fenco Team 2021.</p>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul class="social-icons d-flex">
-                                    @*@foreach (var item in Model.Socials)
-                                    {
-                                        <li>
-                                            <a href="https://facebook.com">
-                                                <i class="@item.Icon"></i>
-                                            </a>
-                                        </li>
-
-                                    }*@
-
-                                    <li>
-                                        <a href="https://facebook.com">
-                                            <i class="fa-brands fa-facebook-f"></i>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="https://facebook.com">
-                                            <i class="fa-brands fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://facebook.com">
-                                            <i class="fa-brands fa-linkedin-in"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://facebook.com">
-                                            <i class="fa-solid fa-rss"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://facebook.com">
-                                            <i class="fa-brands fa-dribbble"></i>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    @await Component.InvokeAsync("VcLayout")
 
     <button id="btnScrollToTop">
         <i class="fa-solid fa-arrow-up"></i>

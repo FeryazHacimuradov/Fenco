@@ -1,0 +1,50 @@
+﻿@model List<Blog>
+
+<section id="recent-entries">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>Blog Entries</h2>
+                    <span>Here you can check out our blog entries.</span>
+                </div>
+            </div>
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="entries-item">
+                        <div class="thumb">
+                            <a href="#">
+                                <img src="~/Uploads/@item.BlogImage.Image" alt="">
+                                @{
+                                    DateTime today = DateTime.Today;
+                                    TimeSpan diff = today.Subtract(item.CreatedDate);
+
+                                    int days = diff.Days;
+                                    }
+                                <span class="date"> @item.CreatedDate </span>
+                            </a>
+                        </div>
+                        <div class="down-content">
+                            <span class="info">
+                                <a href="#"><i class="fa-solid fa-user"></i>admin@*@(item.CustomUser.Name+" "+item.CustomUser.Surname)*@</a>
+                                |
+                                <a href="#"><i class="fa-solid fa-message"></i> 7 Comments</a>
+                            </span>
+                            <a href="#">
+                                <h4>@item.Title</h4>
+                            </a>
+                            <p>@(item.BlogContent.Content.Length>30? item.BlogContent.Content.Substring(0,80)+"...": item.BlogContent.Content)</p>
+                            <div class="text-button">
+                                <a asp-controller="blog" asp-action="details" asp-route-id="@item.Id">Continue Reading</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+

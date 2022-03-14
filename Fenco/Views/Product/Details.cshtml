@@ -1,5 +1,15 @@
 ﻿@model Product
+@inject IHttpContextAccessor _httpContext
+@{
 
+    string cart = _httpContext.HttpContext.Request.Cookies["cart"];
+    List<string> cartList = new List<string>();
+    if (!string.IsNullOrEmpty(cart))
+    {
+        cartList = cart.Split("-").ToList();
+
+    }
+}
 <main>
     <section id="page-heading">
         <div class="container expanded">
@@ -75,7 +85,11 @@
                         </p>
                         <form action="submit">
                             <input class="quantity-text" placeholder="1">
-                            <button type="submit" id="form-submit" class="main-dark-button">Add to cart</button>
+                            <button type="submit" id="form-submit" class="main-dark-button" asp-controller="product" asp-action="addToCart"
+                                    asp-route-sizeColorproductId="@Model.ColorToProducts.FirstOrDefault().SizeColorToProducts.FirstOrDefault().Id"
+                                    class="@(cartList.Any(i=>i==Model.ColorToProducts.FirstOrDefault().SizeColorToProducts.FirstOrDefault().Id.ToString())?"inCart":"")">
+                                Add to cart
+                            </button>
                         </form>
                         <span class="tags">
                             <a href="#">@Model.ProductCategory.Name</a>

@@ -21,11 +21,6 @@ namespace Fenco.Controllers
         }
         public IActionResult Index(VmProduct model)
         {
-            //VmProduct model = new VmProduct();
-
-            model.Setting = _context.Settings.FirstOrDefault();
-            model.Socials = _context.Socials.ToList();
-            model.Services = _context.Services.ToList();
 
             List<Product> products = _context.Products
                                                       .Include(cp => cp.ColorToProducts).ThenInclude(pi => pi.ProductImages)
@@ -95,10 +90,6 @@ namespace Fenco.Controllers
 
         public IActionResult Cart()
         {
-            VmProduct model = new VmProduct();
-            model.Setting = _context.Settings.FirstOrDefault();
-            model.Socials = _context.Socials.ToList();
-            model.Services = _context.Services.ToList();
 
             string cart = Request.Cookies["cart"];
             List<SizeColorToProduct> sizeColorToProducts = new List<SizeColorToProduct>();
