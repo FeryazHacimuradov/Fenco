@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@inject IHttpContextAccessor _httpContext
+@inject UserManager<IdentityUser> _userManager
+@inject SignInManager<IdentityUser> _signInManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -149,7 +152,6 @@
 
             <!-- Heading -->
             <!--<div class="sidebar-heading">Addons</div>-->
-
             <!-- Nav Item - Pages Collapse Menu -->
             <!--<li class="nav-item">
                 <a class="nav-link collapsed"
@@ -177,7 +179,6 @@
                     </div>
                 </div>
             </li>-->
-
             <!-- Nav Item - Charts -->
             <!--<li class="nav-item">
                 <a class="nav-link" href="~/Areas/admin/charts.html">
@@ -185,7 +186,6 @@
                     <span>Charts</span>
                 </a>
             </li>-->
-
             <!-- Nav Item - Tables -->
             <!--<li class="nav-item">
                 <a class="nav-link" href="~/Areas/admin/tables.html">
@@ -193,7 +193,6 @@
                     <span>Tables</span>
                 </a>
             </li>-->
-
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block" />
 
@@ -400,7 +399,12 @@
                                data-toggle="dropdown"
                                aria-haspopup="true"
                                aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    @if (_signInManager.IsSignedIn(User))
+                                    {
+                                        _userManager.GetUserName(User);
+                                    }
+                                </span>
                                 <img class="img-profile rounded-circle"
                                      src="~/Areas/admin/img/undraw_profile.svg" />
                             </a>

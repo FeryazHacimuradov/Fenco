@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Fenco.Data;
 using Fenco.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fenco.Areas.admin.Controllers
 {
     [Area("admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public class BlogsController : Controller
     {
         private readonly AppDbContext _context;

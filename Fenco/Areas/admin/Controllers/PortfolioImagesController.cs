@@ -9,10 +9,12 @@ using Fenco.Data;
 using Fenco.Models;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Fenco.Areas.admin.Controllers
 {
     [Area("admin")]
+    [Authorize(Roles = "Admin, Moderator")]
     public class PortfolioImagesController : Controller
     {
         private readonly AppDbContext _context;
