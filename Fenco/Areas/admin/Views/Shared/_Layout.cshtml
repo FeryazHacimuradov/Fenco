@@ -400,10 +400,7 @@
                                aria-haspopup="true"
                                aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                    @if (_signInManager.IsSignedIn(User))
-                                    {
-                                        _userManager.GetUserName(User);
-                                    }
+                                    @_userManager.GetUserName(User)
                                 </span>
                                 <img class="img-profile rounded-circle"
                                      src="~/Areas/admin/img/undraw_profile.svg" />
