@@ -187,5 +187,13 @@ namespace Fenco.Areas.admin.Controllers
             return RedirectToAction("index");
         }
 
+        public async Task<IActionResult> Delete(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("index");
+        }
+
     }
 }
