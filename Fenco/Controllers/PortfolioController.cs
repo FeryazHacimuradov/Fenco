@@ -20,12 +20,17 @@ namespace Fenco.Controllers
         public IActionResult Index()
         {
             VmHome model = new VmHome();
-            model.Setting = _context.Settings.FirstOrDefault();
-            model.Socials = _context.Socials.ToList();
-            model.Services = _context.Services.ToList();
             model.Categories = _context.Categories.Include(b => b.Blogs).ToList();
             model.Portfolios = _context.Portfolios.Include(i => i.PortfolioImage).Where(p => (model.prId != null ? p.CategoryId == model.prId : true)).ToList();
             model.Tags = _context.Tags.ToList();
+
+            return View(model);
+        }
+
+        public IActionResult Details(int id)
+        {
+            VmHome model = new VmHome();
+            model.Portfolio = _context.Portfolios.Include(i => i.PortfolioImage).Include(tg => tg.TagToPortfolios).ThenInclude(t => t.Tag).FirstOrDefault(p => p.Id == id);
 
             return View(model);
         }

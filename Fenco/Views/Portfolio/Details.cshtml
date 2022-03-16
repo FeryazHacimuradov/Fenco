@@ -1,72 +1,33 @@
-﻿@model VmHome 
-@{
-    ViewData["Title"] = "Index";
-}
+﻿@model VmHome
 
 <main>
-    <section id="page-heading">
+    <section id="second-page-project-heading">
         <div class="container expanded">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-content">
-                        <h2>
-                            Welcome to
-                            <br>
-                            <em>Portfolio Masonry</em>
-                        </h2>
-                        <span>Home / <em> PORTFOLIO </em></span>
+                        <h2>Welcome to<br><em>Must-Have Skater Girl Items.</em></h2>
+                        <span><em>By:</em> Admin <em> @Model.Portfolio.CreatedDate <em> Category:</em> Fashion</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio-masonry">
+    <section id="post-details-content">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="portfolio-filters">
-                        <ul>
-                            <li class="active" data-filter="*">All Products</li>
-                            @foreach (var item in Model.Categories)
-                            {
-                                <li data-filter=".category-women"><a asp-controller="portfolio" asp-action="index" asp-route-prId="@item.Id" style="color: #000;">@item.Name</a></li>
-                            }
-                        </ul>
+                    <div class="project-heading">
+                        <h2>@Model.Portfolio.Title</h2>
+                        <p>
+                            @Model.Portfolio.Content
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <div class="row masonry-layout filters-content normal-col-gap">
-                        @foreach (var item in Model.Portfolios)
-                        {
-                            <div class="col-md-4 masonry-item all category-kids category-women">
-                                <div class="portfolio-item">
-                                    <div class="thumb">
-                                        <div class="hover-content">
-                                            <ul class="icons">
-                                                <li><a asp-controller="portfolio" asp-action="details" asp-route-id="@item.Id"><i><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="img-box">
-                                            <div class="img-box-inner">
-                                                <img src="~/Uploads/@item.PortfolioImage.Image" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="down-content">
-                                        <h4><a href="portfolio-details">@item.Title</a></h4>
-                                        <span class="category">@item.Category.Name</span>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    </div>
+                    <img src="~/Uploads/@Model.Portfolio.PortfolioImage.Image" alt="">
                 </div>
-                @*<div class="col-lg-12">
-                    <div class="border-dark-button">
-                        <a href="full-width-portfolio.html">Load More Products</a>
-                    </div>
-                </div>*@
             </div>
         </div>
     </section>
@@ -117,4 +78,3 @@
         </div>
     </section>
 </main>
-
